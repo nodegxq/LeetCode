@@ -3,17 +3,15 @@ public:
     void rotate(vector<int>& nums, int k) {
 
         int n = nums.size();
-        k = k % n;   // handle large k
+        k = k % n; // handle k >= n
 
-        for (int i = 0; i < k; ++i){
-            int last = nums[n - 1];   // store last element
+        // Reverse the entire array
+        reverse(nums.begin(), nums.end());
 
-            // shift all elements to the right by 1
-            for (int j = n - 1; j > 0; --j){
-                nums[j] = nums[j - 1];
-            }
+        // Reverse the first k elements
+        reverse(nums.begin(), nums.begin() + k);
 
-            nums[0] = last;   // put the last element at the front
-        }
+        // Reverse the remaining n - k elements
+        reverse(nums.begin() + k, nums.end());
     }
 };
