@@ -9,7 +9,7 @@ public:
         while (left < nums.size() - 1){
             int farthest = 0;
 
-            for (int i = left; i <= right + 1; ++i){
+            for (int i = left; i < nums.size() - 1; ++i){
                 farthest = max(farthest, i + nums[i]);
             }
 
